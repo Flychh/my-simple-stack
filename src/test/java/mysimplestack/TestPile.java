@@ -25,7 +25,20 @@ public class TestPile {
     @Test(expected  = mysimplestack.EmptyStackException.class)
     public void testPop() throws EmptyStackException {
         Stack st = new Stack();
+        Item it1 = new Item();
+        Item it2 = new Item();
         st.pop();
+        st.push(it1);
+        st.push(it2);
+        st.pop();
+        assertFalse("Pile non vide", st.isEmpty());
+        assertSame("L'item en haut de pile est le meme que celui du bas de la pile", it1, st.peek());
+    }
+
+    public void testGetItem () {
+        Item it = new Item();
+        int item = it.getItem();
+        assertEquals("L'item est le meme que celui dans l'objet item", item, it.getItem());
     }
 
 }
